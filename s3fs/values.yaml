@@ -4,7 +4,7 @@
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: supu/kube-s3
+  repository: ghcr.io/supu2/kube-s3
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -102,5 +102,5 @@ extraDeploy: []
   #     S3_ENDPOINT: <S3-ENDPOINT>
   #     AWS_ACCESS_KEY_ID: <YOUR-AWS-TECH-USER-ACCESS-KEY>
   #     AWS_SECRET_ACCESS_KEY: <YOUR-AWS-TECH-USER-SECRET>
-  #     MNT_OPTS: url=${S3_URL},use_path_request_style,allow_other,retries=5
+  #     MNT_OPTS: use_path_request_style,allow_other,retries=5
 
