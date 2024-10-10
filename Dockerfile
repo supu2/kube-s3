@@ -4,7 +4,7 @@
 
 FROM alpine:3.20
 
-RUN apk --no-cache add bash s3fs
+RUN apk add --no-cache bash s3fs-fuse
 RUN sed -i s/"#user_allow_other"/"user_allow_other"/g /etc/fuse.conf
 
 COPY docker-entrypoint.sh /
