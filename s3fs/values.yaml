@@ -57,14 +57,18 @@ resources: {}
   #   memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
-livenessProbe: |
+livenessProbe: 
   exec:
-    command: ["stat", "/s3/{{ .Release.Name }}/.liveness"]
-readinessProbe: |
+    command: ["/bin/sh", "-c", "stat $MNT_POINT/.liveness"]
+
+startupProbe:
+  exec:
+    command: ["/bin/sh", "-c", "stat $MNT_POINT/.liveness"]
+    
+readinessProbe: {}
   # httpGet:
   #   path: /
   #   port: http
-
 
 # Additional volumes on the output Deployment definition.
 volumes: []
